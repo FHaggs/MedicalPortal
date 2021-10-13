@@ -1,0 +1,48 @@
+{% extends 'header.html' %}
+{% block content %}
+{% if request.user.is_authenticated %}
+<div class="container">
+    <h1 class="indigo-text text-darken-1">Medical Portal</h1>
+    <h5 class="indigo-text text-darken-4">Logged as {{request.user}}</h5>
+    <h6 class="indigo-text text-darken-5">Log in as another <a href="login/">patient</a></h6>
+</div>
+    {% for ex in exame %}
+        {% if request.user == ex.patient %}
+            <div class="container">
+                <blockquote style="border-left: 5px solid">
+                    <h3>{{ex.title}}</h3>
+                    <h4>{{ex.patient}}</h4>
+                    <a style="font-size:x-large" href=/static/Exame/{{ex.filename}} download>
+                        See your exam
+                    </a>
+                </blockquote>
+                
+            </div>
+            
+        {% endif %}
+    {% endfor %}
+<main>
+    <div class="container"></div>
+</main>
+
+<footer class="page-footer cyan lighten-2">
+    <div class="container">
+        <div class="row">
+        <div class="col l6 s12">
+            <h5 class="white-text">If the page is empty your exams haven't arrived yet</h5>
+            <p class="grey-text text-lighten-4">Medical Portal.</p>
+        </div>
+        </div>
+    </div>
+    </div>
+</footer>
+
+ 
+{% else %}
+    <div class="container">
+        <h1>Log in to view your exams</h1>
+        <h2>Click <a href="login"> here</a> to login</h2>
+    </div>
+
+{% endif %}
+{% endblock %}
