@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 
-import django_on_heroku
+#import django_on_heroku
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -28,7 +28,7 @@ SECRET_KEY = 'p1e#2ev0_)vgjxpajl=4qabb%2nu7q=5ik)%-2hk^7=w8n40nb'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
 
 # Application definition
 
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'register.apps.RegisterConfig',
 ]
 
 MIDDLEWARE = [
@@ -122,8 +123,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'main/static')
-"""
 MEDIA_URL = '/media/'
-MEDIA_ROOT = '/www/portal/mysite/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'main/media')
 """
-django_on_heroku.settings(locals())
+"""
+#django_on_heroku.settings(locals())

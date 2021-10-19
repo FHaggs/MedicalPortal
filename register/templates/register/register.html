@@ -9,15 +9,16 @@
         <div class="col s12 z-depth-6 card-panel">
             <center><img src="{% static "images/MedicalPortal.png" %}" alt="My image" class="responsive-img valign profile-image-login"></center>
             {{form.as_p}}
+            </br>
             {% if messages %}
-                <ul class="messages">
-                    {% for message in messages %}
-                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-                    {% endfor %}
-                </ul>
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
             {% endif %}
-            <button type="submit" class="btn waves-effect waves-light col s12 blue darken-1">Login</button>
-            <p>If you don't have an account <a href="/register"><strong>regiter</strong></a> here</p>
+            <button type="submit" class="btn waves-effect waves-light col s12 blue darken-1">Register</button>
+            <p>If you already have an account <a href="/login"><strong>login</strong></a> insted</p>
         </div>
         </form>
     </div>
